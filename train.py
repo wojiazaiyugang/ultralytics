@@ -1,7 +1,7 @@
 from ultralytics import YOLO
 
 # Load a model
-model = YOLO("yolo11-p2.yaml")
+model = YOLO("yolo11x-p2.yaml")
 
 # Train the model
 train_results = model.train(
@@ -9,15 +9,15 @@ train_results = model.train(
     epochs=100,  # number of training epochs
     imgsz=640,  # training image size
     device="cuda:0",  # device to run on, i.e. device=0 or device=0,1,2,3 or device=cpu
-    # batch=15,
+    batch=12,
 )
 
 # Evaluate model performance on the validation set
-metrics = model.val()
+# metrics = model.val()
 
 # Perform object detection on an image
-results = model("./curvilinearFault_1687357745359curvilinearFault.jpg")
-results[0].show()
+# results = model("./curvilinearFault_1687357745359curvilinearFault.jpg")
+# results[0].show()
 
 # Export the model to ONNX format
 # path = model.export(format="onnx")  # return path to exported model
