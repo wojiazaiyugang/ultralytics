@@ -1,7 +1,7 @@
 from ultralytics import YOLO
 
 # Load a model
-model = YOLO("yolo11x.pt")
+model = YOLO("yolo11-p2.yaml")
 
 # Train the model
 train_results = model.train(
