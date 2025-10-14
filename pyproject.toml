@@ -25,10 +25,11 @@ build-backend = "setuptools.build_meta"
 # Project settings -----------------------------------------------------------------------------------------------------
 [project]
 name = "ultralytics"
+version = "0.1.0"
 dynamic = ["version"]
 description = "Ultralytics YOLO 🚀 for SOTA object detection, multi-object tracking, instance segmentation, pose estimation and image classification."
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.12"
 license = { "text" = "AGPL-3.0" }
 keywords = ["machine-learning", "deep-learning", "computer-vision", "ML", "DL", "AI", "YOLO", "YOLOv3", "YOLOv5", "YOLOv8", "YOLOv9", "YOLOv10", "YOLO11", "HUB", "Ultralytics"]
 authors = [
@@ -191,3 +192,8 @@ in-place = true
 [tool.codespell]
 ignore-words-list = "crate,nd,ned,strack,dota,ane,segway,fo,gool,winn,commend,bloc,nam,afterall"
 skip = '*.pt,*.pth,*.torchscript,*.onnx,*.tflite,*.pb,*.bin,*.param,*.mlmodel,*.engine,*.npy,*.data*,*.csv,*pnnx*,*venv*,*translat*,__pycache__*,*.ico,*.jpg,*.png,*.mp4,*.mov,/runs,/.git,./docs/??/*.md,./docs/mkdocs_??.yml'
+
+[[tool.poetry.source]]
+name = "ustc"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+priority = "primary"
