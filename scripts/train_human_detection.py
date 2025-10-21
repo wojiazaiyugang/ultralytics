@@ -8,7 +8,8 @@ model = YOLO("yolo11m.pt")
 # Train the model
 results = model.train(data=r"C:\Users\yujiannan\Downloads\Classroom mointoring.v1i.yolov11\data.yaml",
                       epochs=300,
-                      batch=0.9,
+                      batch=8,
+                      exist_ok=True,
                       imgsz=640 * 2,
                       project="human_detection",
                       name="2",
