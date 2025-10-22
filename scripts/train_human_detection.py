@@ -10,14 +10,13 @@ comet_ml.login(api_key="gq76e4j6CHnkcgarANUr5uXjV",
 
 model = YOLO("yolo11m.pt")
 
-results = model.train(data=r"D:\Datasets\process_20251013_20251014_20251018_20251023\data.yaml",
+results = model.train(data=r"D:\Datasets\process_20251022\data.yaml",
                       epochs=300,
                       imgsz=640*2,
                       batch=8,
                       exist_ok=True,
                       project="human_detection",
-                      multi_scale=True,
-                      name="3",
+                      name="4",
                       degrees=10,
                       shear=10,
                       perspective=0.0005,
