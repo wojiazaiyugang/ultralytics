@@ -75,6 +75,7 @@ dependencies = [
     "psutil", # system utilization
     "polars",
     "ultralytics-thop>=2.0.0", # FLOPs computation https://github.com/ultralytics/thop
+    "comet-ml (>=3.53.2,<4.0.0)",
 ]
 
 # Optional dependencies ------------------------------------------------------------------------------------------------

@@ -1,20 +1,20 @@
 """
 教室人体检测
 """
+import comet_ml
 from ultralytics import YOLO
+
+comet_ml.login(api_key="gq76e4j6CHnkcgarANUr5uXjV",
+               workspace="wojiazaiyugang",
+               project_name="human-detection")
 
 model = YOLO("yolo11m.pt")
 
-# Train the model
-results = model.train(data=r"C:\Users\yujiannan\Downloads\Classroom mointoring.v1i.yolov11\data.yaml",
+results = model.train(data=r"D:\Datasets\process_20251013_20251014_20251018_20251023\data.yaml",
                       epochs=300,
-                      batch=8,
-                      exist_ok=True,
-                      imgsz=640 * 2,
+                      imgsz=640,
                       project="human_detection",
-                      name="3",
-                      rect=True,
-                      multi_scale=True,
+                      name="1",
                       degrees=10,
                       shear=10,
                       perspective=0.0005,

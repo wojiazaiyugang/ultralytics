@@ -258,10 +258,9 @@ reference = "ustc"
 name = "attrs"
 version = "25.4.0"
 description = "Classes Without Boilerplate"
-optional = true
+optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "python_version == \"3.12\" and platform_system != \"Windows\" and (extra == \"export\" or extra == \"solutions\" or extra == \"logging\") or python_version == \"3.12\" and (extra == \"solutions\" or extra == \"logging\") or python_version <= \"3.13\" and platform_system != \"Windows\" and (extra == \"export\" or extra == \"solutions\") or extra == \"solutions\""
 files = [
     {file = "attrs-25.4.0-py3-none-any.whl", hash = "sha256:adcf7e2a1fb3b36ac48d97835bb6d8ade15b8dcce26aba8bf1d14847b57a3373"},
     {file = "attrs-25.4.0.tar.gz", hash = "sha256:16d5969b87f0859ef33a48b35d55ac1be6e42ae49d5e853b597db70c35c57e11"},
@@ -731,6 +730,57 @@ markers = "(platform_system == \"Windows\" or extra == \"dev\" or extra == \"ext
 files = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
     {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
+]
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "ustc"
+
+[[package]]
+name = "comet-ml"
+version = "3.53.2"
+description = "Supercharging Machine Learning"
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "comet_ml-3.53.2-py3-none-any.whl", hash = "sha256:34ac4dad20231d0b00295dd1746f27846e03cc1c08085141159d708ad1092b28"},
+    {file = "comet_ml-3.53.2.tar.gz", hash = "sha256:f0e11cb82efd29fe024c2c4a93320c95ef73a61dbb52f13d7f53f75add3f7863"},
+]
+
+[package.dependencies]
+dulwich = {version = ">=0.20.6,<0.20.33 || >0.20.33", markers = "python_version >= \"3.0\""}
+everett = {version = ">=1.0.1,<3.2.0", extras = ["ini"]}
+jsonschema = ">=2.6.0,<3.1.0 || >3.1.0"
+psutil = ">=5.6.3"
+python-box = "<7.0.0"
+requests = ">=2.18.4"
+requests-toolbelt = ">=0.8.0"
+rich = {version = ">=13.3.2", markers = "python_version >= \"3.7.0\""}
+semantic-version = ">=2.8.0"
+sentry-sdk = ">=1.1.0"
+setuptools = {version = "*", markers = "python_version >= \"3.12\""}
+simplejson = "*"
+urllib3 = ">=1.26.8"
+wrapt = ">=1.11.2"
+wurlitzer = ">=1.0.2"
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "ustc"
+
+[[package]]
+name = "configobj"
+version = "5.0.9"
+description = "Config file reading, writing and validation."
+optional = false
+python-versions = ">=3.7"
+groups = ["main"]
+files = [
+    {file = "configobj-5.0.9-py2.py3-none-any.whl", hash = "sha256:1ba10c5b6ee16229c79a05047aeda2b55eb4e80d7c7d8ecf17ec1ca600c79882"},
+    {file = "configobj-5.0.9.tar.gz", hash = "sha256:03c881bbf23aa07bccf1b837005975993c4ab4427ba57f959afdd9d1a2386848"},
 ]
 
 [package.source]
@@ -1261,6 +1311,66 @@ url = "https://mirrors.aliyun.com/pypi/simple"
 reference = "ustc"
 
 [[package]]
+name = "dulwich"
+version = "0.24.6"
+description = "Python Git Library"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "dulwich-0.24.6-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:ff0c88dd7d9d87c208d22a0952d3b2f6234851cd89d58aa0a8395888b69846b7"},
+    {file = "dulwich-0.24.6-cp310-cp310-manylinux_2_28_aarch64.whl", hash = "sha256:95889897b60965d40800c6089b3a889d51b3702b421ecfdd51ad62030a2cec10"},
+    {file = "dulwich-0.24.6-cp310-cp310-manylinux_2_28_x86_64.whl", hash = "sha256:7b2e07adbeb1fcc148ae2ad42b8adcdeda38b27410c0b130e69284ff2238450d"},
+    {file = "dulwich-0.24.6-cp310-cp310-win32.whl", hash = "sha256:7e3eaff784434ec02fddceb13536a71183c2a057bc23c903e1fabe1da990952c"},
+    {file = "dulwich-0.24.6-cp310-cp310-win_amd64.whl", hash = "sha256:08ae1b04d7061392c531998d0a8e7204a44d653df30e9a1e688e72ef3f665918"},
+    {file = "dulwich-0.24.6-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:aac4a0911c6329662c52fb57ac4b130d03e814f09d5857e7650ff1c1402c0d39"},
+    {file = "dulwich-0.24.6-cp311-cp311-manylinux_2_28_aarch64.whl", hash = "sha256:0bf0a4a6efb59742e20988021f508892672c18dc15753458cb5a82bf1cf6a0f9"},
+    {file = "dulwich-0.24.6-cp311-cp311-manylinux_2_28_x86_64.whl", hash = "sha256:c1bf5f80924688e68f5d4739f0786870e08926bfb3fd3406fcc06ce5755c2cf2"},
+    {file = "dulwich-0.24.6-cp311-cp311-win32.whl", hash = "sha256:e162ecfd84370f0eaff1220ac8c728ccdb88df72f4c366db9ddb775e5a8de079"},
+    {file = "dulwich-0.24.6-cp311-cp311-win_amd64.whl", hash = "sha256:159313deeaa61ff7da7938a83245207668d6c74fe486be7c8e01c661a6ca5468"},
+    {file = "dulwich-0.24.6-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:f821b78595893442707cd4e7b3dafac616a92d8b9135d138021798084e6ccfc1"},
+    {file = "dulwich-0.24.6-cp312-cp312-manylinux_2_28_aarch64.whl", hash = "sha256:15bfb32b972d9a3068ff6973bdd01eb1f470379f62a49d53c41f50ce8cb78508"},
+    {file = "dulwich-0.24.6-cp312-cp312-manylinux_2_28_x86_64.whl", hash = "sha256:a3381a5caf11849230a70879628e00bfcfdb58bda585566aad585544f22e9d08"},
+    {file = "dulwich-0.24.6-cp312-cp312-win32.whl", hash = "sha256:cf838356a1aff0efb281066e4d471b2a9e809eb1e1126b195a921287801c8d09"},
+    {file = "dulwich-0.24.6-cp312-cp312-win_amd64.whl", hash = "sha256:d7461fc5646df3239f38d608e70ab13b6b051b5287ade6d0a694c93f852b7ece"},
+    {file = "dulwich-0.24.6-cp313-cp313-android_21_arm64_v8a.whl", hash = "sha256:80f1805ce44f8952cea6375809abf3093c59a704194a03b74d9815fd1567671a"},
+    {file = "dulwich-0.24.6-cp313-cp313-android_21_x86_64.whl", hash = "sha256:a0946e29d1c76f7fc5ce6de5a04247464204ef0dac371d899ef6613e73f459a2"},
+    {file = "dulwich-0.24.6-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:cd8ee92dced3b5251f520880d42b0af2b99b5741b7855e59aabac09045655d72"},
+    {file = "dulwich-0.24.6-cp313-cp313-manylinux_2_28_aarch64.whl", hash = "sha256:4e058228b125567be0cc2b3c081cc9c56122494443a90f4b40c893ddaf9bc458"},
+    {file = "dulwich-0.24.6-cp313-cp313-manylinux_2_28_x86_64.whl", hash = "sha256:91f9ac0192bb9e08c282be12572cfee94bbb612a4e91a2dcdf85ed9d906064e1"},
+    {file = "dulwich-0.24.6-cp313-cp313-win32.whl", hash = "sha256:98020e3bea3ec21af2539e5c0471c479bbe7985a788ad99891986c71eb583b16"},
+    {file = "dulwich-0.24.6-cp313-cp313-win_amd64.whl", hash = "sha256:96b5bd0c23a2f7d80cdd5bf277bc8cc696cdce9b1a467457c85463bc44c07e0a"},
+    {file = "dulwich-0.24.6-cp314-cp314-android_24_arm64_v8a.whl", hash = "sha256:00a3d6bb5bc7451b2996d9b59671b6843c930422f3775f71b183fc672452766b"},
+    {file = "dulwich-0.24.6-cp314-cp314-android_24_x86_64.whl", hash = "sha256:3d33f5bb85aff2cf6ba787b8a7e1afa6f7a9308d542f55a462f981ce4aa7d5ab"},
+    {file = "dulwich-0.24.6-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:2bb46c4573085d32495d98e0d9d670a3ae8eefe16f50511c26ab1fcbb6063bdd"},
+    {file = "dulwich-0.24.6-cp39-cp39-manylinux_2_28_aarch64.whl", hash = "sha256:b0e14c55f9b5419b4bdf2ac51f9e78bbe4e7efd0aad6c94f4a2f367c40c37e38"},
+    {file = "dulwich-0.24.6-cp39-cp39-manylinux_2_28_x86_64.whl", hash = "sha256:3e724f4738cd5b9fcdb9cc47955d389879473ac791e807bf5e549479b638dfae"},
+    {file = "dulwich-0.24.6-cp39-cp39-win32.whl", hash = "sha256:2dad29d6f6463427c9d0aa82c59d2f5a5fecea7114c61482c43b510ca3d314bf"},
+    {file = "dulwich-0.24.6-cp39-cp39-win_amd64.whl", hash = "sha256:e9c16edb068f94aa998016c6f487c6887492dd350c0330b850c0f244974fd88d"},
+    {file = "dulwich-0.24.6-py3-none-any.whl", hash = "sha256:d5bf23d61a9f366ebb00a764d8157fbfe2bf693317e60f32b696991adaefe3c6"},
+    {file = "dulwich-0.24.6.tar.gz", hash = "sha256:e8aebdb52cee481ddc038a2b88376bc28767127fdf3e5ea08b52ae1f60e1e15b"},
+]
+
+[package.dependencies]
+urllib3 = ">=2.2.2"
+
+[package.extras]
+colordiff = ["rich"]
+dev = ["codespell (==2.4.1)", "dissolve (>=0.1.1)", "mypy (==1.18.2)", "ruff (==0.13.2)"]
+fastimport = ["fastimport"]
+fuzzing = ["atheris"]
+https = ["urllib3 (>=2.2.2)"]
+merge = ["merge3"]
+paramiko = ["paramiko"]
+patiencediff = ["patiencediff"]
+pgp = ["gpg"]
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "ustc"
+
+[[package]]
 name = "email-validator"
 version = "2.3.0"
 description = "A robust email address syntax and deliverability validation library."
@@ -1320,6 +1430,30 @@ etree-dm = ["dm-tree", "etils[etree]"]
 etree-jax = ["etils[etree]", "jax[cpu]"]
 etree-tf = ["etils[etree]", "tensorflow"]
 lazy-imports = ["etils[ecolab]"]
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "ustc"
+
+[[package]]
+name = "everett"
+version = "3.1.0"
+description = "Configuration library for Python applications"
+optional = false
+python-versions = "*"
+groups = ["main"]
+files = [
+    {file = "everett-3.1.0-py2.py3-none-any.whl", hash = "sha256:db13891b849e45e54faea93ee79881d12458c5378f5b9b7f806eeff03ce1de3c"},
+    {file = "everett-3.1.0.tar.gz", hash = "sha256:46175da5bcb06c193aa129e59714bca981344ff067c3a8bc2e625bc0b3dc01f6"},
+]
+
+[package.dependencies]
+configobj = {version = "*", optional = true, markers = "extra == \"ini\""}
+
+[package.extras]
+ini = ["configobj"]
+yaml = ["PyYAML"]
 
 [package.source]
 type = "legacy"
@@ -2848,10 +2982,9 @@ reference = "ustc"
 name = "jsonschema"
 version = "4.25.1"
 description = "An implementation of JSON Schema validation for Python"
-optional = true
+optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "(extra == \"solutions\" or python_version == \"3.12\") and (extra == \"solutions\" or extra == \"logging\")"
 files = [
     {file = "jsonschema-4.25.1-py3-none-any.whl", hash = "sha256:3fba0169e345c7175110351d456342c364814cfcf3b964ba4587f22915230a63"},
     {file = "jsonschema-4.25.1.tar.gz", hash = "sha256:e4a9655ce0da0c0b67a085847e00a3a51449e1157f4f75e9fb5aa545e122eb85"},
@@ -2900,10 +3033,9 @@ reference = "ustc"
 name = "jsonschema-specifications"
 version = "2025.9.1"
 description = "The JSON Schema meta-schemas and vocabularies, exposed as a Registry"
-optional = true
+optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "(extra == \"solutions\" or python_version == \"3.12\") and (extra == \"solutions\" or extra == \"logging\")"
 files = [
     {file = "jsonschema_specifications-2025.9.1-py3-none-any.whl", hash = "sha256:98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe"},
     {file = "jsonschema_specifications-2025.9.1.tar.gz", hash = "sha256:b540987f239e745613c7a9176f3edb72b832a4ac465cf02712288397832b5e8d"},
@@ -3199,10 +3331,9 @@ reference = "ustc"
 name = "markdown-it-py"
 version = "4.0.0"
 description = "Python port of markdown-it. Markdown parsing, done right!"
-optional = true
+optional = false
 python-versions = ">=3.10"
 groups = ["main"]
-markers = "(extra == \"export\" or python_version == \"3.12\") and (extra == \"export\" or extra == \"logging\")"
 files = [
     {file = "markdown_it_py-4.0.0-py3-none-any.whl", hash = "sha256:87327c59b172c5011896038353a81343b6754500a08cd7a4973bb48c6d578147"},
     {file = "markdown_it_py-4.0.0.tar.gz", hash = "sha256:cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3"},
@@ -3474,10 +3605,9 @@ reference = "ustc"
 name = "mdurl"
 version = "0.1.2"
 description = "Markdown URL utilities"
-optional = true
+optional = false
 python-versions = ">=3.7"
 groups = ["main"]
-markers = "(extra == \"export\" or python_version == \"3.12\") and (extra == \"export\" or extra == \"logging\")"
 files = [
     {file = "mdurl-0.1.2-py3-none-any.whl", hash = "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8"},
     {file = "mdurl-0.1.2.tar.gz", hash = "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"},
@@ -6813,10 +6943,9 @@ reference = "ustc"
 name = "pygments"
 version = "2.19.2"
 description = "Pygments is a syntax highlighting package written in Python."
-optional = true
+optional = false
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "(python_version == \"3.12\" or extra == \"dev\" or extra == \"extra\" or extra == \"export\") and (extra == \"dev\" or extra == \"extra\" or extra == \"export\" or extra == \"logging\")"
 files = [
     {file = "pygments-2.19.2-py3-none-any.whl", hash = "sha256:86540386c03d588bb81d44bc3928634ff26449851e99741617ecb9037ee5ec0b"},
     {file = "pygments-2.19.2.tar.gz", hash = "sha256:636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"},
@@ -6941,6 +7070,47 @@ pytest = ">=7"
 
 [package.extras]
 testing = ["process-tests", "pytest-xdist", "virtualenv"]
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "ustc"
+
+[[package]]
+name = "python-box"
+version = "6.1.0"
+description = "Advanced Python dictionaries with dot notation access"
+optional = false
+python-versions = ">=3.7"
+groups = ["main"]
+files = [
+    {file = "python-box-6.1.0.tar.gz", hash = "sha256:6e7c243b356cb36e2c0f0e5ed7850969fede6aa812a7f501de7768996c7744d7"},
+    {file = "python_box-6.1.0-cp310-cp310-macosx_10_15_x86_64.whl", hash = "sha256:c14aa4e72bf30f4d573e62ff8030a86548603a100c3fb534561dbedf4a83f454"},
+    {file = "python_box-6.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ab13208b053525ef154a36a4a52873b98a12b18b946edd4c939a4d5080e9a218"},
+    {file = "python_box-6.1.0-cp310-cp310-win_amd64.whl", hash = "sha256:d199cd289b4f4d053770eadd70217c76214aac30b92a23adfb9627fd8558d300"},
+    {file = "python_box-6.1.0-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:ac44b3b85714a4575cc273b5dbd39ef739f938ef6c522d6757704a29e7797d16"},
+    {file = "python_box-6.1.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:3f0036f91e13958d2b37d2bc74c1197aa36ffd66755342eb64910f63d8a2990f"},
+    {file = "python_box-6.1.0-cp311-cp311-win_amd64.whl", hash = "sha256:af6bcee7e1abe9251e9a41ca9ab677e1f679f6059321cfbae7e78a3831e0b736"},
+    {file = "python_box-6.1.0-cp37-cp37m-macosx_10_15_x86_64.whl", hash = "sha256:11cbe62f0dace8a6e2a10d210a5e87b99ad1a1286865568862516794c923a988"},
+    {file = "python_box-6.1.0-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:fa4696b5e09ccf695bf05c16bb5ca1fcc95a141a71a31eb262eee8e2ac07189a"},
+    {file = "python_box-6.1.0-cp37-cp37m-win_amd64.whl", hash = "sha256:3638d3559f19ece7fa29f6a6550bc64696cd3b65e3d4154df07a3d06982252ff"},
+    {file = "python_box-6.1.0-cp38-cp38-macosx_10_15_x86_64.whl", hash = "sha256:53998c3b95e31d1f31e46279ef1d27ac30b137746927260901ee61457f8468a0"},
+    {file = "python_box-6.1.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:594b0363b187df855ff8649488b1301dddbbeea769629b7caeb584efe779b841"},
+    {file = "python_box-6.1.0-cp38-cp38-win_amd64.whl", hash = "sha256:1d29eafaa287857751e27fbe9a08dd856480f0037fe988b221eba4dac33e5852"},
+    {file = "python_box-6.1.0-cp39-cp39-macosx_10_15_x86_64.whl", hash = "sha256:9dbd92b67c443a97326273c9239fce04d3b6958be815d293f96ab65bc4a9dae7"},
+    {file = "python_box-6.1.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ed6d7fe47d756dc2d9dea448702cea103716580a2efee7c859954929295fe28e"},
+    {file = "python_box-6.1.0-cp39-cp39-win_amd64.whl", hash = "sha256:7b73f26e40a7adc57b9e39f5687d026dfa8a336f48aefaf852a223b4e37392ad"},
+    {file = "python_box-6.1.0-py3-none-any.whl", hash = "sha256:bdec0a5f5a17b01fc538d292602a077aa8c641fb121e1900dff0591791af80e8"},
+]
+
+[package.extras]
+all = ["msgpack", "ruamel.yaml (>=0.17)", "toml"]
+msgpack = ["msgpack"]
+pyyaml = ["PyYAML"]
+ruamel-yaml = ["ruamel.yaml (>=0.17)"]
+toml = ["toml"]
+tomli = ["tomli ; python_version < \"3.11\"", "tomli-w"]
+yaml = ["ruamel.yaml (>=0.17)"]
 
 [package.source]
 type = "legacy"
@@ -7173,10 +7343,9 @@ reference = "ustc"
 name = "referencing"
 version = "0.36.2"
 description = "JSON Referencing + Python"
-optional = true
+optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "(extra == \"solutions\" or python_version == \"3.12\") and (extra == \"solutions\" or extra == \"logging\")"
 files = [
     {file = "referencing-0.36.2-py3-none-any.whl", hash = "sha256:e8699adbbf8b5c7de96d8ffa0eb5c158b3beafce084968e2ea8bb08c6794dcd0"},
     {file = "referencing-0.36.2.tar.gz", hash = "sha256:df2e89862cd09deabbdba16944cc3f10feb6b3e6f18e902f7cc25609a34775aa"},
@@ -7220,6 +7389,26 @@ url = "https://mirrors.aliyun.com/pypi/simple"
 reference = "ustc"
 
 [[package]]
+name = "requests-toolbelt"
+version = "1.0.0"
+description = "A utility belt for advanced users of python-requests"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+groups = ["main"]
+files = [
+    {file = "requests-toolbelt-1.0.0.tar.gz", hash = "sha256:7681a0a3d047012b5bdc0ee37d7f8f07ebe76ab08caeccfc3921ce23c88d5bc6"},
+    {file = "requests_toolbelt-1.0.0-py2.py3-none-any.whl", hash = "sha256:cccfdd665f0a24fcf4726e690f65639d272bb0637b9b92dfd91a5568ccf6bd06"},
+]
+
+[package.dependencies]
+requests = ">=2.0.1,<3.0.0"
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "ustc"
+
+[[package]]
 name = "rfc3339-validator"
 version = "0.1.4"
 description = "A pure python RFC3339 validator"
@@ -7244,10 +7433,9 @@ reference = "ustc"
 name = "rich"
 version = "14.2.0"
 description = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
-optional = true
+optional = false
 python-versions = ">=3.8.0"
 groups = ["main"]
-markers = "(extra == \"export\" or python_version == \"3.12\") and (extra == \"export\" or extra == \"logging\")"
 files = [
     {file = "rich-14.2.0-py3-none-any.whl", hash = "sha256:76bc51fe2e57d2b1be1f96c524b890b816e334ab4c1e45888799bfaab0021edd"},
     {file = "rich-14.2.0.tar.gz", hash = "sha256:73ff50c7c0c1c77c8243079283f4edb376f0f6442433aecb8ce7e6d0b92d1fe4"},
@@ -7291,10 +7479,9 @@ reference = "ustc"
 name = "rpds-py"
 version = "0.27.1"
 description = "Python bindings to Rust's persistent data structures (rpds)"
-optional = true
+optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "(extra == \"solutions\" or python_version == \"3.12\") and (extra == \"solutions\" or extra == \"logging\")"
 files = [
     {file = "rpds_py-0.27.1-cp310-cp310-macosx_10_12_x86_64.whl", hash = "sha256:68afeec26d42ab3b47e541b272166a0b4400313946871cba3ed3a4fc0cab1cef"},
     {file = "rpds_py-0.27.1-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:74e5b2f7bb6fa38b1b10546d27acbacf2a022a8b5543efb06cfebc72a59c85be"},
@@ -7687,13 +7874,33 @@ url = "https://mirrors.aliyun.com/pypi/simple"
 reference = "ustc"
 
 [[package]]
+name = "semantic-version"
+version = "2.10.0"
+description = "A library implementing the 'SemVer' scheme."
+optional = false
+python-versions = ">=2.7"
+groups = ["main"]
+files = [
+    {file = "semantic_version-2.10.0-py2.py3-none-any.whl", hash = "sha256:de78a3b8e0feda74cabc54aab2da702113e33ac9d9eb9d2389bcf1f58b7d9177"},
+    {file = "semantic_version-2.10.0.tar.gz", hash = "sha256:bdabb6d336998cbb378d4b9db3a4b56a1e3235701dc05ea2690d9a997ed5041c"},
+]
+
+[package.extras]
+dev = ["Django (>=1.11)", "check-manifest", "colorama (<=0.4.1) ; python_version == \"3.4\"", "coverage", "flake8", "nose2", "readme-renderer (<25.0) ; python_version == \"3.4\"", "tox", "wheel", "zest.releaser[recommended]"]
+doc = ["Sphinx", "sphinx-rtd-theme"]
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "ustc"
+
+[[package]]
 name = "sentry-sdk"
 version = "2.41.0"
 description = "Python client for Sentry (https://sentry.io)"
-optional = true
+optional = false
 python-versions = ">=3.6"
 groups = ["main"]
-markers = "extra == \"logging\""
 files = [
     {file = "sentry_sdk-2.41.0-py2.py3-none-any.whl", hash = "sha256:343cde6540574113d13d178d1b2093e011ac21dd55abd3a1ec7e540f0d18a5bd"},
     {file = "sentry_sdk-2.41.0.tar.gz", hash = "sha256:e7af3f4d7f8bac4c56fbaf95adb0d111f061cce58d5df91cfcd4e69782759b10"},
@@ -7861,10 +8068,9 @@ reference = "ustc"
 name = "simplejson"
 version = "3.20.2"
 description = "Simple, fast, extensible JSON encoder/decoder for Python"
-optional = true
+optional = false
 python-versions = ">=2.5, !=3.0.*, !=3.1.*, !=3.2.*"
 groups = ["main"]
-markers = "extra == \"export\""
 files = [
     {file = "simplejson-3.20.2-cp27-cp27m-manylinux1_i686.whl", hash = "sha256:11847093fd36e3f5a4f595ff0506286c54885f8ad2d921dfb64a85bce67f72c4"},
     {file = "simplejson-3.20.2-cp27-cp27m-manylinux1_x86_64.whl", hash = "sha256:4d291911d23b1ab8eb3241204dd54e3ec60ddcd74dfcb576939d3df327205865"},
@@ -9943,10 +10149,9 @@ reference = "ustc"
 name = "wrapt"
 version = "1.17.3"
 description = "Module for decorators, wrappers and monkey patching."
-optional = true
+optional = false
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "extra == \"export\""
 files = [
     {file = "wrapt-1.17.3-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:88bbae4d40d5a46142e70d58bf664a89b6b4befaea7b2ecc14e03cedb8e06c04"},
     {file = "wrapt-1.17.3-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:e6b13af258d6a9ad602d57d889f83b9d5543acd471eee12eb51f5b01f8eb1bc2"},
@@ -10040,10 +10245,9 @@ reference = "ustc"
 name = "wurlitzer"
 version = "3.1.1"
 description = "Capture C-level output in context managers"
-optional = true
+optional = false
 python-versions = ">=3.5"
 groups = ["main"]
-markers = "extra == \"export\""
 files = [
     {file = "wurlitzer-3.1.1-py3-none-any.whl", hash = "sha256:0b2749c2cde3ef640bf314a9f94b24d929fe1ca476974719a6909dfc568c3aac"},
     {file = "wurlitzer-3.1.1.tar.gz", hash = "sha256:bfb9144ab9f02487d802b9ff89dbd3fa382d08f73e12db8adc4c2fb00cd39bd9"},
@@ -10127,4 +10331,4 @@ typing = ["scipy-stubs", "types-pillow", "types-psutil", "types-pyyaml", "types-
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12"
-content-hash = "3639e2ff1cfdc6d32e9209351a8e1a40d4c3c3867b0594f9ef626f21f450bfbd"
+content-hash = "de22533a4648204b7bf9ce255bafa43d5717a6181394b6c4305b9d304a1ad9e1"
