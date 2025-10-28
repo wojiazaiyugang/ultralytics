@@ -176,3 +176,4 @@ pnnx*
 calibration_*.npy
 
 /scripts/human_detection/
+/scripts/chair_detection/
