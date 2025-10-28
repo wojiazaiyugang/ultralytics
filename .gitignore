@@ -177,3 +177,4 @@ calibration_*.npy
 
 /scripts/human_detection/
 /scripts/chair_detection/
+/scripts/student_action_classify/
