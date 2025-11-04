@@ -16,9 +16,9 @@ results = model.train(data=r"/DATA/yujiannan/Datasets/座椅关键点/data.yaml"
                       batch=12,
                       exist_ok=True,
                       project="seat_keypoints",
-                      name="1",
+                      name="2",
                       degrees=10,
                       shear=10,
                       perspective=0.0005,
-                      mixup=0.1,
-                      cutmix=0.1)
+                      mixup=0,
+                      cutmix=0)
