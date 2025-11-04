@@ -179,3 +179,4 @@ calibration_*.npy
 /scripts/chair_detection/
 /scripts/student_action_classify/
 /scripts/teacher_student_classify
+/scripts/seat_keypoints/
