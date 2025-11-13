@@ -9,9 +9,9 @@ comet_ml.login(api_key="gq76e4j6CHnkcgarANUr5uXjV",
 model = YOLO("yolo11m-cls.pt")  # load a pretrained model (recommended for training)
 
 # Train the model
-results = model.train(data=r"D:\Datasets\20251028",
+results = model.train(data=r"/DATA/yujiannan/Datasets/20251114",
                       epochs=300,
                       imgsz=224,
                       exist_ok=True,
-                      project="student_action_classify",
-                      name="1")
+                      project="logs/student_action_classify",
+                      name="2")
