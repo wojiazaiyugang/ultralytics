@@ -14,9 +14,10 @@ results = model.train(data=r"/DATA/yujiannan/Datasets/process_20251117/data.yaml
                       batch=12,
                       exist_ok=True,
                       project="logs/blackboard_detection",
-                      name="1",
+                      name="2",
                       degrees=10,
                       shear=10,
                       perspective=0.0005,
-                      mixup=0.1,
-                      cutmix=0.1)
+                      # mixup=0.1,
+                      # cutmix=0.1
+                      )
