@@ -14,4 +14,5 @@ results = model.train(data=r"/DATA/yujiannan/Datasets/20251121",
                       imgsz=224,
                       exist_ok=True,
                       project="logs/student_action_classify",
-                      name="3")
+                      auto_augment="augmix",
+                      name="4")
