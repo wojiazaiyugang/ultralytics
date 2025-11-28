@@ -14,4 +14,5 @@ results = model.train(data="/DATA/yujiannan/Datasets/20251128_20251129_limited",
                       imgsz=224,
                       exist_ok=True,
                       project="logs/teacher_action_classify",
-                      name="4")
+                      erasing=0,
+                      name="5")
