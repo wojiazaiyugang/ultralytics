@@ -16,7 +16,7 @@ results = model.train(data=r"/DATA/yujiannan/Datasets/process_20251209_20251210/
                       batch=12,
                       exist_ok=True,
                       project="logs/teacher_detection",
-                      name="1",
+                      name="2",
                       degrees=10,
                       shear=10,
                       perspective=0.0005,
