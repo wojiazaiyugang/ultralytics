@@ -15,10 +15,11 @@ results = model.train(data=r"/DATA/yujiannan/Datasets/process_20251215/data.yaml
                       imgsz=640*2,
                       batch=12,
                       exist_ok=True,
-                      project="seat_keypoints",
+                      project="logs/seat_keypoints",
                       name="3",
                       degrees=10,
                       shear=10,
                       perspective=0.0005,
+                      mosaic=False,
                       mixup=0,
                       cutmix=0)
