@@ -10,6 +10,7 @@ model = YOLO("yolo11s-cls.pt")  # load a pretrained model (recommended for train
 
 # Train the model
 results = model.train(data=r"/DATA/yujiannan/Datasets/20260210",
+                      batch=16*6,
                       epochs=300,
                       imgsz=224,
                       exist_ok=True,
