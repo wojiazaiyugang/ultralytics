@@ -4,7 +4,6 @@ import comet_ml
 import cv2
 import numpy as np
 from PIL import Image
-from torchvision.transforms import functional as F
 
 from ultralytics import YOLO
 from ultralytics.data.dataset import ClassificationDataset
@@ -14,13 +13,19 @@ comet_ml.login(api_key="gq76e4j6CHnkcgarANUr5uXjV",
                workspace="wojiazaiyugang",
                project_name="student-action-classify")
 
-def pad_to_square(img: Image.Image, fill=114):
-    w, h = img.size
-    max_side = max(w, h)
-    pad_w = max_side - w
-    pad_h = max_side - h
-    padding = (pad_w // 2, pad_h // 2, pad_w - pad_w // 2, pad_h - pad_h // 2)
-    return F.pad(img, padding, fill=fill)
+def letter_box(image):
+    """
+    长边不变，短边居中补齐到与长边一致（方图）
+    :return: 补边后的Frame
+    """
+    imh, imw = image.shape[:2]
+    side = max(imh, imw)
+    top = (side - imh) // 2
+    left = (side - imw) // 2
+
+    output = np.full((side, side, 3), 114, dtype=image.dtype)
+    output[top: top + imh, left: left + imw] = image
+    return output
 
 class Dataset(ClassificationDataset):
     def __init__(self, *args: Any, **kwargs: Any) -> None:
@@ -46,9 +51,9 @@ class Dataset(ClassificationDataset):
             im = np.load(fn)
         else:  # read image
             im = cv2.imread(f)  # BGR
+        im = letter_box(im) # <<<<<
         # Convert NumPy array to PIL image
         im = Image.fromarray(cv2.cvtColor(im, cv2.COLOR_BGR2RGB))
-        im = pad_to_square(im) # <<<<<
         sample = self.torch_transforms(im)
         return {"img": sample, "cls": j}
 
