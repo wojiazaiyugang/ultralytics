@@ -34,14 +34,14 @@ class Dataset(ClassificationDataset):
         self.torch_transforms = T.Compose([SquarePadToMaxSide(), self.torch_transforms])
 
 
-class Traniner(ClassificationTrainer):
+class Trainer(ClassificationTrainer):
     def build_dataset(self, img_path: str, mode: str = "train", batch=None):
         return Dataset(root=img_path, args=self.args, augment=mode == "train", prefix=mode)
 
 model = YOLO("yolo11s-cls.pt")
 
 # Train the model
-results = model.train(trainer=Traniner,
+results = model.train(trainer=Trainer,
                       data=r"/DATA/yujiannan/Datasets/20260210",
                       batch=16*6,
                       epochs=300,
