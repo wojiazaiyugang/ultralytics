@@ -65,11 +65,10 @@ class Trainer(ClassificationTrainer):
 model = YOLO("yolo11s-cls.pt")
 
 # Train the model
-results = model.train(trainer=Trainer,
-                      data=r"/DATA/yujiannan/Datasets/20260210",
+results = model.train(data=r"/DATA/yujiannan/Datasets/20260331_limited",
                       batch=16*6,
                       epochs=300,
                       imgsz=224,
                       exist_ok=True,
                       project="logs/student_action_classify",
-                      name="7")
+                      name="8")
