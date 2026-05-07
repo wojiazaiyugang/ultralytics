@@ -15,4 +15,4 @@ results = model.train(data="/DATA/yujiannan/Datasets/process_20260414_limited",
                       exist_ok=True,
                       project="logs/teacher_action_classify",
                       erasing=0,
-                      name="12")
+                      name="13")
