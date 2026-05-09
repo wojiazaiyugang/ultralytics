@@ -71,4 +71,4 @@ results = model.train(data=r"/DATA/yujiannan/Datasets/process_20260422_limited",
                       imgsz=224,
                       exist_ok=True,
                       project="logs/student_action_classify",
-                      name="17")
+                      name="18")
