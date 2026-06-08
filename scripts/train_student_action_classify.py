@@ -15,6 +15,8 @@ comet_ml.login(api_key="gq76e4j6CHnkcgarANUr5uXjV",
                workspace="wojiazaiyugang",
                project_name="student-action-classify")
 
+PREPROCESS = "letterbox"  # 可选: "center_crop", "letterbox"
+
 
 def letter_box(image: np.ndarray) -> np.ndarray:
     """
@@ -44,7 +46,18 @@ def build_transforms(args: Any, augment: bool):
     if augment:
         if args.fliplr > 0:
             transforms.append(T.RandomHorizontalFlip(p=args.fliplr))
-        if args.hsv_v > 0 or args.hsv_s > 0 or args.hsv_h > 0:
+        if args.auto_augment:
+            auto_augment = str(args.auto_augment).lower()
+            interpolation = T.InterpolationMode.BILINEAR
+            if auto_augment == "randaugment":
+                transforms.append(T.RandAugment(interpolation=interpolation))
+            elif auto_augment == "augmix":
+                transforms.append(T.AugMix(interpolation=interpolation))
+            elif auto_augment == "autoaugment":
+                transforms.append(T.AutoAugment(interpolation=interpolation))
+            else:
+                raise ValueError(f"不支持的 auto_augment: {args.auto_augment}")
+        elif args.hsv_v > 0 or args.hsv_s > 0 or args.hsv_h > 0:
             transforms.append(
                 T.ColorJitter(
                     brightness=args.hsv_v,
@@ -123,24 +136,27 @@ def main():
         batch=96,
         epochs=300,
         imgsz=224,
+        patience=80,
         exist_ok=False,
         project="logs/student_action_classify",
-        name="38",
-        erasing=0.0,
-        auto_augment=None,
+        name="39",
+        # 37/38 训练 loss 过快归零，下一轮加回非裁剪型正则，降低过拟合和过置信。
+        dropout=0.1,
+        weight_decay=0.001,
+        cos_lr=True,
+        erasing=0.05,
+        auto_augment="randaugment",
         fliplr=0.5,
-        hsv_h=0.0,
-        hsv_s=0.15,
-        hsv_v=0.15,
+        hsv_h=0.015,
+        hsv_s=0.4,
+        hsv_v=0.25,
     )
-
-    PREPROCESS = "letterbox"  # 可选: "center_crop", "letterbox"
 
     if PREPROCESS == "center_crop":
         # Ultralytics 默认分类预处理：train 使用轻量 RandomResizedCrop，val/predict 使用 Resize + CenterCrop。
         train_kwargs.update(scale=0.1)
     elif PREPROCESS == "letterbox":
-        # 不使用 RandomResizedCrop / RandomErasing，避免裁掉腿、头、桌面边界后破坏站立判断。
+        # 不使用 RandomResizedCrop，避免裁掉腿、头、桌面边界后破坏站立判断。
         train_kwargs.update(trainer=LetterBoxClassificationTrainer, scale=0.0)
     else:
         raise ValueError(f"不支持的 PREPROCESS: {PREPROCESS}")
