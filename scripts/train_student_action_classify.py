@@ -15,7 +15,7 @@ comet_ml.login(api_key="gq76e4j6CHnkcgarANUr5uXjV",
                workspace="wojiazaiyugang",
                project_name="student-action-classify")
 
-PREPROCESS = "center_crop"  # 可选: "center_crop", "letterbox"
+PREPROCESS = "letterbox"  # 可选: "center_crop", "letterbox"
 
 
 def letter_box(image: np.ndarray) -> np.ndarray:
@@ -139,12 +139,12 @@ def main():
         patience=80,
         exist_ok=False,
         project="logs/student_action_classify",
-        name="40",
-        # 37/38 训练 loss 过快归零，下一轮加回非裁剪型正则，降低过拟合和过置信。
+        name="41",
+        # 基于 39，只去掉 RandomErasing，验证擦除增强是否破坏小目标/局部姿态线索。
         dropout=0.1,
         weight_decay=0.001,
         cos_lr=True,
-        erasing=0.05,
+        erasing=0.0,
         auto_augment="randaugment",
         fliplr=0.5,
         hsv_h=0.015,
