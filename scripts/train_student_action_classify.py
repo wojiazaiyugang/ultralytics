@@ -125,7 +125,7 @@ def main():
         imgsz=224,
         exist_ok=False,
         project="logs/student_action_classify",
-        name="37",
+        name="38",
         erasing=0.0,
         auto_augment=None,
         fliplr=0.5,
@@ -134,7 +134,7 @@ def main():
         hsv_v=0.15,
     )
 
-    PREPROCESS = "center_crop"  # 可选: "center_crop", "letterbox"
+    PREPROCESS = "letterbox"  # 可选: "center_crop", "letterbox"
 
     if PREPROCESS == "center_crop":
         # Ultralytics 默认分类预处理：train 使用轻量 RandomResizedCrop，val/predict 使用 Resize + CenterCrop。
