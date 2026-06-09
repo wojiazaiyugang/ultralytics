@@ -17,28 +17,28 @@ def main():
 
     train_kwargs = dict(
         data="/DATA/yujiannan/Datasets/process_20260414_updating_limited",
-        batch=96,
+        batch=16,
         epochs=300,
         imgsz=224,
-        patience=80,
+        patience=100,
         exist_ok=False,
         project="logs/teacher_action_classify",
-        name="16",
-        # 对照 15：同一份数据和同一组正则增强，只把预处理从 letterbox 换回 center crop。
-        dropout=0.1,
-        weight_decay=0.001,
-        cos_lr=True,
-        erasing=0.05,
+        name="17",
+        # 对照 13：同一份 updated 数据，但恢复 13 的 center crop 训练策略。
+        dropout=0.0,
+        weight_decay=0.0005,
+        cos_lr=False,
+        erasing=0,
         auto_augment="randaugment",
         fliplr=0.5,
         hsv_h=0.015,
-        hsv_s=0.4,
-        hsv_v=0.25,
+        hsv_s=0.7,
+        hsv_v=0.4,
     )
 
     if PREPROCESS == "center_crop":
         # Ultralytics 默认分类预处理：train 使用轻量 RandomResizedCrop，val/predict 使用 Resize + CenterCrop。
-        train_kwargs.update(scale=0.1)
+        train_kwargs.update(scale=0.5)
     elif PREPROCESS == "letterbox":
         # 不使用 RandomResizedCrop，避免裁掉老师全身轮廓后破坏坐/站/板书判断。
         train_kwargs.update(trainer=LetterBoxClassificationTrainer, scale=0.0)
