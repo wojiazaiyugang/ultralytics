@@ -23,11 +23,11 @@ def main():
         patience=100,
         exist_ok=False,
         project="logs/teacher_action_classify",
-        name="18",
-        # 对照 17：同一份 updated 数据和 13 旧增强策略，从预训练模型重新训练，只改为 cosine 学习率。
+        name="19",
+        # 最新 updated 数据重新训练。老师动作分类当前以 13 的 center crop 旧策略最稳。
         dropout=0.0,
         weight_decay=0.0005,
-        cos_lr=True,
+        cos_lr=False,
         erasing=0,
         auto_augment="randaugment",
         fliplr=0.5,
