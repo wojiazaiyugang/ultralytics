@@ -23,11 +23,11 @@ def main():
         patience=100,
         exist_ok=False,
         project="logs/teacher_action_classify",
-        name="17",
-        # 对照 13：同一份 updated 数据，但恢复 13 的 center crop 训练策略。
+        name="18",
+        # 对照 17：同一份 updated 数据和 13 旧增强策略，从预训练模型重新训练，只改为 cosine 学习率。
         dropout=0.0,
         weight_decay=0.0005,
-        cos_lr=False,
+        cos_lr=True,
         erasing=0,
         auto_augment="randaugment",
         fliplr=0.5,
