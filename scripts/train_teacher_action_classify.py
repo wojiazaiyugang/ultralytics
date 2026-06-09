@@ -23,22 +23,22 @@ def main():
         patience=100,
         exist_ok=False,
         project="logs/teacher_action_classify",
-        name="21",
-        # 对照 19/20：减弱 RandomResizedCrop，保留更多上下文，尝试降低 stand/teach -> write。
+        name="22",
+        # 对照 19：去掉 RandAugment，只保留轻量颜色增强，验证强几何增强是否放大 write 误报。
         dropout=0.0,
         weight_decay=0.0005,
         cos_lr=False,
         erasing=0,
-        auto_augment="randaugment",
+        auto_augment=None,
         fliplr=0.5,
         hsv_h=0.015,
-        hsv_s=0.7,
-        hsv_v=0.4,
+        hsv_s=0.4,
+        hsv_v=0.25,
     )
 
     if PREPROCESS == "center_crop":
         # Ultralytics 默认分类预处理：train 使用轻量 RandomResizedCrop，val/predict 使用 Resize + CenterCrop。
-        train_kwargs.update(scale=0.3)
+        train_kwargs.update(scale=0.5)
     elif PREPROCESS == "letterbox":
         # 不使用 RandomResizedCrop，避免裁掉老师全身轮廓后破坏坐/站/板书判断。
         train_kwargs.update(trainer=LetterBoxClassificationTrainer, scale=0.0)
