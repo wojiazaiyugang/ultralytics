@@ -24,17 +24,17 @@ def main():
         patience=100,
         exist_ok=False,
         project="logs/teacher_action_classify",
-        name="23",
-        # 对照 19：所有类别随机 tight crop / expand pad，打破 crop 风格和类别的绑定。
+        name="24",
+        # 对照 23：保留 crop-style，去掉 RandAugment，验证 crop-style 本身是否有效。
         dropout=0.0,
         weight_decay=0.0005,
         cos_lr=False,
         erasing=0,
-        auto_augment="randaugment",
+        auto_augment=None,
         fliplr=0.5,
         hsv_h=0.015,
-        hsv_s=0.7,
-        hsv_v=0.4,
+        hsv_s=0.4,
+        hsv_v=0.25,
     )
 
     if PREPROCESS == "center_crop":
