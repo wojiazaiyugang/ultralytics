@@ -9,7 +9,7 @@ comet_ml.login(api_key="gq76e4j6CHnkcgarANUr5uXjV",
                workspace="wojiazaiyugang",
                project_name="teacher-action-classify")
 
-PREPROCESS = "letterbox"  # 可选: "center_crop", "letterbox"
+PREPROCESS = "center_crop"  # 可选: "center_crop", "letterbox"
 
 
 def main():
@@ -23,8 +23,8 @@ def main():
         patience=80,
         exist_ok=False,
         project="logs/teacher_action_classify",
-        name="15",
-        # 复用学生动作分类 39 的有效策略：保留完整人体比例，并用轻量正则降低过拟合。
+        name="16",
+        # 对照 15：同一份数据和同一组正则增强，只把预处理从 letterbox 换回 center crop。
         dropout=0.1,
         weight_decay=0.001,
         cos_lr=True,
