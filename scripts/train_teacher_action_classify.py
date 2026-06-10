@@ -24,7 +24,7 @@ def main():
         patience=100,
         exist_ok=False,
         project="logs/teacher_action_classify",
-        name="25",
+        name="26",
         dropout=0.0,
         weight_decay=0.0005,
         cos_lr=False,
