@@ -24,8 +24,7 @@ def main():
         patience=100,
         exist_ok=False,
         project="logs/teacher_action_classify",
-        name="24",
-        # 对照 23：保留 crop-style，去掉 RandAugment，验证 crop-style 本身是否有效。
+        name="25",
         dropout=0.0,
         weight_decay=0.0005,
         cos_lr=False,
