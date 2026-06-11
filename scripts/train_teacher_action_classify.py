@@ -24,16 +24,16 @@ def main():
         patience=100,
         exist_ok=False,
         project="logs/teacher_action_classify",
-        name="26",
+        name="27",
         dropout=0.0,
         weight_decay=0.0005,
         cos_lr=False,
         erasing=0,
-        auto_augment=None,
+        auto_augment="randaugment",
         fliplr=0.5,
         hsv_h=0.015,
-        hsv_s=0.4,
-        hsv_v=0.25,
+        hsv_s=0.7,
+        hsv_v=0.4,
     )
 
     if PREPROCESS == "center_crop":
