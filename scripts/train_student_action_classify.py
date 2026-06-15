@@ -22,13 +22,13 @@ def main():
         patience=80,
         exist_ok=False,
         project="logs/student_action_classify",
-        name="46",
-        # 对比 43：保持 letterbox 和 ColorJitter，只关闭 RandomErasing。
+        name="47",
+        # 对比 442：保持 letterbox 和 RandAugment，只关闭 RandomErasing。
         dropout=0.1,
         weight_decay=0.001,
         cos_lr=True,
         erasing=0.0,
-        auto_augment=None,
+        auto_augment="randaugment",
         fliplr=0.5,
         hsv_h=0.015,
         hsv_s=0.4,
