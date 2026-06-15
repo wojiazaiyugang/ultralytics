@@ -8,7 +8,7 @@ comet_ml.login(api_key="gq76e4j6CHnkcgarANUr5uXjV",
                workspace="wojiazaiyugang",
                project_name="student-action-classify")
 
-PREPROCESS = "letterbox"  # 可选: "center_crop", "letterbox"
+PREPROCESS = "center_crop"  # 可选: "center_crop", "letterbox"
 
 
 def main():
@@ -22,13 +22,13 @@ def main():
         patience=80,
         exist_ok=False,
         project="logs/student_action_classify",
-        name="44",
-        # 对比 43：保持 letterbox 预处理，只把轻量 ColorJitter 换回 RandAugment。
+        name="45",
+        # 对比 43：只把 letterbox 预处理换成默认 center crop。
         dropout=0.1,
         weight_decay=0.001,
         cos_lr=True,
         erasing=0.05,
-        auto_augment="randaugment",
+        auto_augment=None,
         fliplr=0.5,
         hsv_h=0.015,
         hsv_s=0.4,
