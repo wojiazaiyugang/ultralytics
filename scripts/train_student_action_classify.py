@@ -22,7 +22,7 @@ def main():
         patience=80,
         exist_ok=False,
         project="logs/student_action_classify",
-        name="42",
+        name="43",
         # 基于 39，只把 RandAugment 换成轻量 ColorJitter，验证强策略增强是否过度扭曲动作外观。
         dropout=0.1,
         weight_decay=0.001,
