@@ -22,13 +22,13 @@ def main():
         patience=80,
         exist_ok=False,
         project="logs/student_action_classify",
-        name="43",
-        # 基于 39，只把 RandAugment 换成轻量 ColorJitter，验证强策略增强是否过度扭曲动作外观。
+        name="44",
+        # 对比 43：保持 letterbox 预处理，只把轻量 ColorJitter 换回 RandAugment。
         dropout=0.1,
         weight_decay=0.001,
         cos_lr=True,
         erasing=0.05,
-        auto_augment=None,
+        auto_augment="randaugment",
         fliplr=0.5,
         hsv_h=0.015,
         hsv_s=0.4,
