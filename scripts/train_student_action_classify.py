@@ -22,13 +22,13 @@ def main():
         patience=80,
         exist_ok=False,
         project="logs/student_action_classify",
-        name="47",
-        # 对比 442：保持 letterbox 和 RandAugment，只关闭 RandomErasing。
+        name="48",
+        # 对比 44：保持 letterbox 和 RandomErasing，把 RandAugment 换成 AugMix。
         dropout=0.1,
         weight_decay=0.001,
         cos_lr=True,
-        erasing=0.0,
-        auto_augment="randaugment",
+        erasing=0.05,
+        auto_augment="augmix",
         fliplr=0.5,
         hsv_h=0.015,
         hsv_s=0.4,
