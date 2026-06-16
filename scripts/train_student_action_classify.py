@@ -22,13 +22,13 @@ def main():
         patience=80,
         exist_ok=False,
         project="logs/student_action_classify",
-        name="54",
-        # 对比 53：保持 11 类全量数据和 ColorJitter，仅恢复 RandomErasing。
+        name="55",
+        # 对比 51：保持训练配置一致，只验证新标注和冲突处理后的数据效果。
         dropout=0.1,
         weight_decay=0.001,
         cos_lr=True,
         erasing=0.05,
-        auto_augment=None,
+        auto_augment="randaugment",
         fliplr=0.5,
         hsv_h=0.015,
         hsv_s=0.4,
