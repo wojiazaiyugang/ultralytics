@@ -22,12 +22,12 @@ def main():
         patience=80,
         exist_ok=False,
         project="logs/student_action_classify",
-        name="55",
-        # 对比 51：保持训练配置一致，只验证新标注和冲突处理后的数据效果。
+        name="56",
+        # 对比 55：保持新标注数据和 RandAugment，仅关闭 RandomErasing。
         dropout=0.1,
         weight_decay=0.001,
         cos_lr=True,
-        erasing=0.05,
+        erasing=0.0,
         auto_augment="randaugment",
         fliplr=0.5,
         hsv_h=0.015,
