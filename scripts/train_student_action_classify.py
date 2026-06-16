@@ -12,7 +12,7 @@ PREPROCESS = "letterbox"  # 可选: "center_crop", "letterbox"
 
 
 def main():
-    model = YOLO("yolo11s-cls.pt")
+    model = YOLO("/home/yujiannan/Projects/ultralytics/scripts/logs/student_action_classify/39/weights/best.pt")
 
     train_kwargs = dict(
         data="/DATA/yujiannan/Datasets/process_20260422_updating_limited",
@@ -22,12 +22,13 @@ def main():
         patience=80,
         exist_ok=False,
         project="logs/student_action_classify",
-        name="56",
-        # 对比 55：保持新标注数据和 RandAugment，仅关闭 RandomErasing。
+        name="57",
+        # 从线上 39 继续低学习率微调，验证能否保留 39 泛化能力并吸收新标注数据。
         dropout=0.1,
         weight_decay=0.001,
         cos_lr=True,
-        erasing=0.0,
+        lr0=0.001,
+        erasing=0.05,
         auto_augment="randaugment",
         fliplr=0.5,
         hsv_h=0.015,
