@@ -22,12 +22,12 @@ def main():
         patience=80,
         exist_ok=False,
         project="logs/student_action_classify",
-        name="51",
-        # 对比 50：恢复 discuss/like_phone 辅助监督类，保持 50 的训练配置。
+        name="52",
+        # 对比 51：保持 11 类全量数据和增强策略，仅关闭 RandomErasing。
         dropout=0.1,
         weight_decay=0.001,
         cos_lr=True,
-        erasing=0.05,
+        erasing=0.0,
         auto_augment="randaugment",
         fliplr=0.5,
         hsv_h=0.015,
