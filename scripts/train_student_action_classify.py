@@ -22,8 +22,8 @@ def main():
         patience=80,
         exist_ok=False,
         project="logs/student_action_classify",
-        name="50",
-        # 对比 44：使用重新处理后的 9 类数据，保持 44 的最佳训练配置。
+        name="51",
+        # 对比 50：恢复 discuss/like_phone 辅助监督类，保持 50 的训练配置。
         dropout=0.1,
         weight_decay=0.001,
         cos_lr=True,
