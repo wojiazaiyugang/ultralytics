@@ -22,12 +22,12 @@ def main():
         patience=80,
         exist_ok=False,
         project="logs/student_action_classify",
-        name="53",
-        # 对比 52：保持 11 类全量数据和 erasing=0，仅将 RandAugment 换成 ColorJitter。
+        name="54",
+        # 对比 53：保持 11 类全量数据和 ColorJitter，仅恢复 RandomErasing。
         dropout=0.1,
         weight_decay=0.001,
         cos_lr=True,
-        erasing=0.0,
+        erasing=0.05,
         auto_augment=None,
         fliplr=0.5,
         hsv_h=0.015,
