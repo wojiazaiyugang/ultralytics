@@ -12,7 +12,7 @@ PREPROCESS = "letterbox"  # 可选: "center_crop", "letterbox"
 
 
 def main():
-    model = YOLO("yolo11s-cls.pt")
+    model = YOLO("/home/yujiannan/Projects/ultralytics/scripts/logs/student_action_classify/59/weights/best.pt")
 
     train_kwargs = dict(
         data="/DATA/yujiannan/Datasets/process_20260422_updating_limited",
@@ -22,16 +22,16 @@ def main():
         patience=80,
         exist_ok=False,
         project="logs/student_action_classify",
-        name="61",
+        name="62",
         dropout=0.1,
         weight_decay=0.001,
         cos_lr=True,
-        optimizer="auto",
-        lr0=0.01,
-        lrf=0.01,
-        warmup_epochs=3.0,
-        warmup_bias_lr=0.1,
-        erasing=0.05,
+        optimizer="SGD",
+        lr0=0.0001,
+        lrf=0.1,
+        warmup_epochs=0.0,
+        warmup_bias_lr=0.0,
+        erasing=0.0,
         auto_augment=None,
         fliplr=0.5,
         hsv_h=0.015,
