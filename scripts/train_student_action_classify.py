@@ -22,22 +22,21 @@ def main():
         patience=80,
         exist_ok=False,
         project="logs/student_action_classify",
-        name="58",
-        # 对比 57：显式关闭 optimizer=auto 和 warmup，做真正的小学习率微调。
+        name="59",
         dropout=0.1,
         weight_decay=0.001,
         cos_lr=True,
         optimizer="SGD",
-        lr0=0.0003,
+        lr0=0.0001,
         lrf=0.1,
         warmup_epochs=0.0,
         warmup_bias_lr=0.0,
-        erasing=0.05,
-        auto_augment="randaugment",
+        erasing=0.0,
+        auto_augment=None,
         fliplr=0.5,
         hsv_h=0.015,
-        hsv_s=0.4,
-        hsv_v=0.25,
+        hsv_s=0.2,
+        hsv_v=0.15,
     )
 
     if PREPROCESS == "center_crop":
