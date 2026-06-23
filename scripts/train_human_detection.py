@@ -19,7 +19,7 @@ results = model.train(data=r"/DATA/yujiannan/Datasets/process_20251013_20260511_
                       batch=10,
                       exist_ok=True,
                       project="logs/human_detection",
-                      name="16",
+                      name="17",
                       degrees=10,
                       shear=10,
                       perspective=0.0005)
