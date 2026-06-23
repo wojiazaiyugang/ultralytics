@@ -16,7 +16,7 @@ results = model.train(data=r"/DATA/yujiannan/Datasets/process_20251013_20260511_
                       # freeze=10,
                       epochs=300,
                       imgsz=640*2,
-                      batch=10,
+                      batch=8,
                       exist_ok=True,
                       project="logs/human_detection",
                       name="17",
