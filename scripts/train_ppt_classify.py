@@ -11,6 +11,7 @@ comet_ml.login(
     project_name="ppt-classify",
 )
 
+
 PREPROCESS = "letterbox"  # 可选: "letterbox", "center_crop"
 
 
@@ -18,22 +19,22 @@ def main():
     model = YOLO("yolo11n-cls.pt")
 
     train_kwargs = dict(
-        data="/DATA/yujiannan/Datasets/20260623_updating",
+        data="/DATA/yujiannan/Datasets/20260625_ppt_classify_group_split",
         batch=64,
         epochs=300,
         imgsz=224,
         patience=50,
         exist_ok=False,
         project="logs/ppt_classify",
-        name="2",
+        name="3",
         dropout=0.1,
-        weight_decay=0.01,
+        weight_decay=0.001,
         cos_lr=True,
-        optimizer="AdamW",
+        optimizer="SGD",
         lr0=0.001,
-        lrf=0.05,
+        lrf=0.01,
         warmup_epochs=3.0,
-        warmup_bias_lr=0.0,
+        warmup_bias_lr=0.1,
         erasing=0.0,
         auto_augment=None,
         fliplr=0.0,
