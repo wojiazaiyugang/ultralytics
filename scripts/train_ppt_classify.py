@@ -26,7 +26,7 @@ def main():
         patience=50,
         exist_ok=False,
         project="logs/ppt_classify",
-        name="4",
+        name="5",
         dropout=0.1,
         weight_decay=0.001,
         cos_lr=True,
@@ -35,12 +35,12 @@ def main():
         lrf=0.01,
         warmup_epochs=3.0,
         warmup_bias_lr=0.1,
-        erasing=0.05,
-        auto_augment="randaugment",
+        erasing=0.0,
+        auto_augment=None,
         fliplr=0.0,
-        hsv_h=0.0,
-        hsv_s=0.0,
-        hsv_v=0.0,
+        hsv_h=0.02,
+        hsv_s=0.4,
+        hsv_v=0.3,
     )
 
     if PREPROCESS == "letterbox":
