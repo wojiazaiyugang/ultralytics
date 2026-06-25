@@ -19,14 +19,14 @@ def main():
     model = YOLO("yolo11s-cls.pt")
 
     train_kwargs = dict(
-        data="/DATA/yujiannan/Datasets/20260625_ppt_classify_group_split",
+        data="/DATA/yujiannan/Datasets/20260625_ppt_classify_group_split_minority_oversample",
         batch=64,
         epochs=300,
         imgsz=224,
         patience=50,
         exist_ok=False,
         project="logs/ppt_classify",
-        name="7",
+        name="8",
         dropout=0.1,
         weight_decay=0.001,
         cos_lr=True,
