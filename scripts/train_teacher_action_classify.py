@@ -14,20 +14,20 @@ PREPROCESS = "letterbox"  # 可选: "center_crop", "crop_style", "letterbox"
 
 
 def main():
-    model = YOLO("yolo11s-cls.pt")
+    model = YOLO("logs/teacher_action_classify/30/weights/best.pt")
 
     train_kwargs = dict(
         data="/DATA/yujiannan/Datasets/process_20260414_updating_limited",
         batch=16,
-        epochs=300,
+        epochs=160,
         imgsz=224,
-        patience=100,
+        patience=50,
         exist_ok=False,
         project="logs/teacher_action_classify",
-        name="33",
-        device="1",
-        dropout=0.1,
-        weight_decay=0.001,
+        name="34",
+        dropout=0.0,
+        lr0=0.003,
+        weight_decay=0.0005,
         cos_lr=False,
         erasing=0,
         auto_augment="randaugment",
