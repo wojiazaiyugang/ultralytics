@@ -9,6 +9,8 @@ from PIL import Image
 from ultralytics.data.dataset import ClassificationDataset
 from ultralytics.models.yolo.classify import ClassificationTrainer, ClassificationValidator
 
+from crop_style_classification import random_crop_style
+
 
 def letter_box(image: np.ndarray) -> np.ndarray:
     """
@@ -71,6 +73,7 @@ def build_transforms(args: Any, augment: bool):
 class LetterBoxClassificationDataset(ClassificationDataset):
     def __init__(self, root: str, args: Any, augment: bool = False, prefix: str = "") -> None:
         super().__init__(root=root, args=args, augment=augment, prefix=prefix)
+        self.augment = augment
         self.torch_transforms = build_transforms(args=args, augment=augment)
 
     def __getitem__(self, i: int) -> dict:
@@ -87,6 +90,29 @@ class LetterBoxClassificationDataset(ClassificationDataset):
         if im is None:
             raise FileNotFoundError(f"无法读取图片: {f}")
 
+        im = letter_box(im)
+        im = Image.fromarray(cv2.cvtColor(im, cv2.COLOR_BGR2RGB))
+        sample = self.torch_transforms(im)
+        return {"img": sample, "cls": j}
+
+
+class LetterBoxCropStyleClassificationDataset(LetterBoxClassificationDataset):
+    def __getitem__(self, i: int) -> dict:
+        f, j, fn, im = self.samples[i]  # filename, index, filename.with_suffix('.npy'), image
+        if self.cache_ram:
+            if im is None:
+                im = self.samples[i][3] = cv2.imread(f)
+        elif self.cache_disk:
+            if not fn.exists():
+                np.save(fn.as_posix(), cv2.imread(f), allow_pickle=False)
+            im = np.load(fn)
+        else:
+            im = cv2.imread(f)
+        if im is None:
+            raise FileNotFoundError(f"无法读取图片: {f}")
+
+        if self.augment:
+            im = random_crop_style(im)
         im = letter_box(im)
         im = Image.fromarray(cv2.cvtColor(im, cv2.COLOR_BGR2RGB))
         sample = self.torch_transforms(im)
@@ -110,3 +136,10 @@ class LetterBoxClassificationTrainer(ClassificationTrainer):
             args=copy(self.args),
             _callbacks=self.callbacks,
         )
+
+
+class LetterBoxCropStyleClassificationTrainer(LetterBoxClassificationTrainer):
+    def build_dataset(self, img_path: str, mode: str = "train", batch=None):
+        if mode == "train":
+            return LetterBoxCropStyleClassificationDataset(root=img_path, args=self.args, augment=True, prefix=mode)
+        return LetterBoxClassificationDataset(root=img_path, args=self.args, augment=False, prefix=mode)

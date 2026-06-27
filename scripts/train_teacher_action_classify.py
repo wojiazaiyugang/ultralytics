@@ -3,37 +3,37 @@ import comet_ml
 from ultralytics import YOLO
 
 from crop_style_classification import CropStyleClassificationTrainer
-from letterbox_classification import LetterBoxClassificationTrainer
+from letterbox_classification import LetterBoxClassificationTrainer, LetterBoxCropStyleClassificationTrainer
 
 
 comet_ml.login(api_key="gq76e4j6CHnkcgarANUr5uXjV",
                workspace="wojiazaiyugang",
                project_name="teacher-action-classify")
 
-PREPROCESS = "letterbox"  # 可选: "center_crop", "crop_style", "letterbox"
+PREPROCESS = "letterbox_crop_style"  # 可选: "center_crop", "crop_style", "letterbox", "letterbox_crop_style"
 
 
 def main():
-    model = YOLO("logs/teacher_action_classify/30/weights/best.pt")
+    model = YOLO("logs/teacher_action_classify/30/weights/last.pt")
 
     train_kwargs = dict(
         data="/DATA/yujiannan/Datasets/process_20260414_updating_limited",
         batch=16,
-        epochs=80,
+        epochs=100,
         imgsz=224,
         patience=20,
         exist_ok=False,
         project="logs/teacher_action_classify",
-        name="37",
+        name="38",
         dropout=0.0,
         optimizer="AdamW",
-        lr0=0.0005,
+        lr0=0.0002,
         warmup_epochs=0.0,
-        warmup_bias_lr=0.0005,
+        warmup_bias_lr=0.0002,
         weight_decay=0.0005,
         cos_lr=False,
         erasing=0,
-        auto_augment="randaugment",
+        auto_augment=None,
         fliplr=0.5,
         hsv_h=0.015,
         hsv_s=0.7,
@@ -49,6 +49,9 @@ def main():
     elif PREPROCESS == "letterbox":
         # 不使用 RandomResizedCrop，避免裁掉老师全身轮廓后破坏坐/站/板书判断。
         train_kwargs.update(trainer=LetterBoxClassificationTrainer, scale=0.0)
+    elif PREPROCESS == "letterbox_crop_style":
+        # 训练集模拟检测框松紧变化，验证和线上仍保持 letterbox，避免裁掉坐/站/板书关键轮廓。
+        train_kwargs.update(trainer=LetterBoxCropStyleClassificationTrainer, scale=0.0)
     else:
         raise ValueError(f"不支持的 PREPROCESS: {PREPROCESS}")
 
