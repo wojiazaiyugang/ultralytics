@@ -10,26 +10,26 @@ comet_ml.login(api_key="gq76e4j6CHnkcgarANUr5uXjV",
                workspace="wojiazaiyugang",
                project_name="teacher-action-classify")
 
-PREPROCESS = "letterbox"  # 可选: "center_crop", "crop_style", "letterbox", "letterbox_crop_style"
+PREPROCESS = "letterbox_crop_style"  # 可选: "center_crop", "crop_style", "letterbox", "letterbox_crop_style"
 
 
 def main():
-    model = YOLO("logs/teacher_action_classify/30/weights/last.pt")
+    model = YOLO("yolo11s-cls.pt")
 
     train_kwargs = dict(
         data="/DATA/yujiannan/Datasets/process_20260414_updating_limited",
         batch=16,
-        epochs=100,
+        epochs=220,
         imgsz=224,
-        patience=20,
+        patience=50,
         exist_ok=False,
         project="logs/teacher_action_classify",
-        name="39",
+        name="40",
         dropout=0.0,
         optimizer="AdamW",
-        lr0=0.0002,
-        warmup_epochs=0.0,
-        warmup_bias_lr=0.0002,
+        lr0=0.001,
+        warmup_epochs=2.0,
+        warmup_bias_lr=0.001,
         weight_decay=0.0005,
         cos_lr=False,
         erasing=0,
