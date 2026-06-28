@@ -10,7 +10,7 @@ comet_ml.login(api_key="gq76e4j6CHnkcgarANUr5uXjV",
                workspace="wojiazaiyugang",
                project_name="teacher-action-classify")
 
-PREPROCESS = "letterbox"  # 可选: "center_crop", "crop_style", "letterbox", "letterbox_crop_style"
+PREPROCESS = "letterbox_crop_style"  # 可选: "center_crop", "crop_style", "letterbox", "letterbox_crop_style"
 
 
 def main():
@@ -24,7 +24,7 @@ def main():
         patience=10,
         exist_ok=False,
         project="logs/teacher_action_classify",
-        name="42",
+        name="43",
         dropout=0.0,
         optimizer="AdamW",
         lr0=0.00005,
