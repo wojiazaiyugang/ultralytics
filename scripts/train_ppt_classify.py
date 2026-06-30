@@ -13,20 +13,21 @@ comet_ml.login(
 
 
 PREPROCESS = "letterbox"  # 可选: "letterbox", "center_crop"
+RUN_NAME = "16"  # run14 复现策略，使用新实验号避免覆盖已有 run14/run15。
 
 
 def main():
     model = YOLO("yolo11s-cls.pt")
 
     train_kwargs = dict(
-        data="/DATA/yujiannan/Datasets/20260625_ppt_classify_group_split_minority_oversample",
+        data="/DATA/yujiannan/Datasets/20260630_ppt_classify_stable_file_split",
         batch=64,
         epochs=300,
         imgsz=224,
         patience=50,
         exist_ok=False,
         project="logs/ppt_classify",
-        name="8",
+        name=RUN_NAME,
         dropout=0.1,
         weight_decay=0.001,
         cos_lr=True,
@@ -35,7 +36,7 @@ def main():
         lrf=0.01,
         warmup_epochs=3.0,
         warmup_bias_lr=0.1,
-        erasing=0.0,
+        erasing=0.05,
         auto_augment="randaugment",
         fliplr=0.0,
         hsv_h=0.0,
