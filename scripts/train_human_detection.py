@@ -19,7 +19,7 @@ results = model.train(data=r"/DATA/yujiannan/Datasets/process_20251013_20260511_
                       batch=4,
                       exist_ok=True,
                       project="logs/human_detection",
-                      name="18",
+                      name="19",
                       cls=1.0,
                       cos_lr=True,
                       close_mosaic=60,
